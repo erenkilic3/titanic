@@ -307,7 +307,8 @@ with preprocessing_tab:
 
     with st.expander("4. Dummy coding"):
         st.write(
-            "Sex and embarked are encoded as 0/1 indicator columns; survived is "
+            "One reference category is omitted for each field to reduce redundant "
+            "columns (female and embarkation port C in this dataset). Survived is "
             "not dummy-coded and dummy columns are not normalized."
         )
         before, after = st.columns(2)
@@ -322,6 +323,7 @@ with preprocessing_tab:
             dummy_coded = pd.get_dummies(
                 passenger_data.loc[:, ["sex", "embarked"]],
                 columns=["sex", "embarked"],
+                drop_first=True,
                 dtype=int,
             )
             st.dataframe(dummy_coded.head(5), width="stretch")
@@ -351,7 +353,10 @@ with data_tab:
         horizontal=True,
     )
     transformed_data = pd.get_dummies(
-        passenger_data, columns=["sex", "embarked"], dtype=int
+        passenger_data,
+        columns=["sex", "embarked"],
+        drop_first=True,
+        dtype=int,
     )
     view_data = {
         "Raw": raw_data.loc[filtered_data.index],
@@ -373,9 +378,7 @@ with data_tab:
                 "age_norm",
                 "fare",
                 "fare_norm",
-                "sex_female",
                 "sex_male",
-                "embarked_C",
                 "embarked_Q",
                 "embarked_S",
             ]

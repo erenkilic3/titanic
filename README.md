@@ -35,4 +35,4 @@ sample-record preview.
 - Median imputation for age and most-frequent-value imputation for embarkation
 - Min-Max normalization of age and fare while retaining their original columns
 - Age discretization using the original ages
-- Dummy coding of sex and embarkation, without dummy-coding survival
+- Dummy coding of sex and embarkation with one reference category omitted, without dummy-coding survival
