@@ -16,6 +16,9 @@ By default, the app loads the Titanic CSV from the Seaborn data repository. To
 use a downloaded copy instead, save it as `titanic.csv` beside
 `app.py`.
 
+`streamlit_app.py` remains as a compatibility entry point for deployments that
+still reference the previous filename; new deployments should use `app.py`.
+
 ## Explore and prepare the data
 
 Use the sidebar to filter passengers by class, sex, and age group. The interface
