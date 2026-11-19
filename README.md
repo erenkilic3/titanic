@@ -1,25 +1,35 @@
-# 🎈 Blank app template
+# Titanic Passenger Insights
 
-A simple Streamlit app template for you to modify!
+An interactive Streamlit dashboard for exploring passenger survival patterns in
+the Titanic dataset and demonstrating common data-preparation techniques.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Run the app
 
-### How to run it on your own machine
+Install dependencies and start the dashboard:
 
-Prerequisite: install `uv` if you don't already have it.
-
+```bash
+uv sync
+uv run streamlit run app.py
 ```
-$ curl -LsSf https://astral.sh/uv/install.sh | sh
-```
 
-1. Sync the dependencies
+By default, the app loads the Titanic CSV from the Seaborn data repository. To
+use a downloaded copy instead, save it as `titanic.csv` beside
+`app.py`.
 
-   ```
-   $ uv sync
-   ```
+## Explore and prepare the data
 
-2. Run the app
+Use the sidebar to filter passengers by class, sex, and age group. The interface
+is organized into Overview, Explore, Preprocessing, and Data Explorer tabs.
+Overview reports the selected passenger count, survivors, survival rate, and
+average fare; charts in Overview and Explore respond to the filters.
 
-   ```
-   $ uv run streamlit run streamlit_app.py
-   ```
+Data Explorer shows observed dimensions, column names and types, the first five
+rows, and missing-value counts. Preprocessing shows before-and-after imputation
+counts and previews in four expandable sections. The data table supports Raw,
+Cleaned, and Transformed views, column selection, filtered row counts, and a
+sample-record preview.
+
+- Median imputation for age and most-frequent-value imputation for embarkation
+- Min-Max normalization of age and fare while retaining their original columns
+- Age discretization using the original ages
+- Dummy coding of sex and embarkation, without dummy-coding survival

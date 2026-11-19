@@ -1,10 +1,11 @@
 [project]
-name = "blank-app-template"
+name = "titanic-passenger-insights"
 version = "0.1.0"
-description = "A simple Streamlit app template."
+description = "An interactive dashboard for exploring Titanic passenger survival."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "pandas>=2.2.0",
     "streamlit>=1.61.1",
 ]
 
